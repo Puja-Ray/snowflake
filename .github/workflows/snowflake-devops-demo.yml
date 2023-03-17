@@ -18,4 +18,4 @@ jobs:
         SNOWFLAKE_WAREHOUSE: COMPUTE_WH
         SNOWFLAKE_ROLE: ACCOUNTADMIN
       run: |
-        schemachange $GITHUB_WORKSPACE/snowflake --account ${SNOWFLAKE_ACCOUNT} \ --user ${SNOWFLAKE_USER} \ --password ${SNOWFLAKE_PASSWORD} \ --database ${SNOWFLAKE_DATABASE} \ --role ${SNOWFLAKE_ROLE}
+          schemachange -f $GITHUB_WORKSPACE/dbscripts -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
